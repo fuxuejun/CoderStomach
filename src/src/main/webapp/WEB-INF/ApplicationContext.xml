@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+
+http://www.springframework.org/schema/aop
+
+http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- 这个地方开始放置所有bean的配置信息 -->
+
+	<!--配置jdbc.properties文件的位置信息 -->
+
+	<bean
+
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+
+		<property name="locations" value="WEB-INF/jdbc.properties" />
+
+	</bean>
+
+	<!-- 读取jdbc.properties文件，配置数据源 -->
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+
+		destroy-method="close">
+
+		<property name="driverClassName" value="${driver}" />
+
+		<property name="url" value="${url}" />
+
+		<property name="username" value="${user}" />
+
+		<property name="password" value="${password}" />
+
+		<!-- 数据库连接池配置 -->
+
+		<property name="initialSize" value="60" /><!-- 初始化连接数量 -->
+
+		<property name="maxActive" value="100" /><!-- 最大连接数量 -->
+
+		<property name="maxIdle" value="50" /><!-- 最大空闲连接数量 -->
+
+		<property name="minIdle" value="10" /><!-- 最小空闲连接数量 -->
+
+	</bean>
+
+	<!-- sqlSessionFactory --><!-- MyBatis在spring中Bean的配置，都是固定的 -->
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+
+		<property name="configLocation" value="WEB-INF/SqlMapConfig.xml" />
+
+		<property name="dataSource" ref="dataSource" />
+
+	</bean>
+
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+
+	</bean>
+	<bean id="testDao" class="test.TestDao">
+		<property name="session" ref="sqlSession"></property>
+	</bean>
+	<bean id="testSerImp" class="test.TestService">
+		<property name="dao" ref="testDao"></property>
+	</bean>
+
+</beans>
