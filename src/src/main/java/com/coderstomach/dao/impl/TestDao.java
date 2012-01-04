@@ -1,5 +1,7 @@
-package test;
+package com.coderstomach.dao.impl;
 
+import com.coderstomach.bean.*;
+import com.coderstomach.dao.*;
 import org.apache.ibatis.session.SqlSession;
 
 public class TestDao implements ITestDao{

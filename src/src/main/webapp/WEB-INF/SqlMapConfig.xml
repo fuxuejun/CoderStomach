@@ -20,7 +20,7 @@ PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"
 
 		<!-- 对应vo类的DAO接口 所对应的xml配置文件的路径信息 -->
 
-		<mapper resource="test/TestTable.xml" />
+		<mapper resource="map/TestTable.xml" />
 
 	</mappers>
 

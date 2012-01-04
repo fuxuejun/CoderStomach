@@ -1,4 +1,4 @@
-package test;
+package com.coderstomach.bean;
 
 public class Test {
 	private int id;

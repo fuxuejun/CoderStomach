@@ -1,4 +1,7 @@
-package test;
+package com.coderstomach.service.impl;
+
+import com.coderstomach.service.*;
+import com.coderstomach.dao.*;
 
 public class TestService implements ITestService {
 	private ITestDao dao;
