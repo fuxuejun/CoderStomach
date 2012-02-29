@@ -35,4 +35,12 @@
 		<url-pattern>/test</url-pattern>
 
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>redirect</servlet-name>
+		<servlet-class>test.RedirectServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>redirect</servlet-name>
+		<url-pattern>/redirect</url-pattern>
+	</servlet-mapping>
 </web-app>

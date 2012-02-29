@@ -4,6 +4,7 @@
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources"/>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java"/>
 	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources"/>
+	<classpathentry kind="src" path="sql"/>
 	<classpathentry kind="con" path="org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
@@ -41,5 +42,6 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/org.springframework.web.struts-3.0.6.RELEASE.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/mysql-connector-java-5.1.18-bin.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/lucene-core-3.5.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
